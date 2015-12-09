@@ -49,13 +49,17 @@ def compute_mass_fraction(solute_molar_mass,
     # compute_mass_fraction
     mass_fraction = solute_mass / solvent_mass
 
-    return mass_fraction
+    return mass_fraction,solute_mass,solvent_mass
+
 
 if __name__=='__main__':
     for reagent in molar_mass:
-        mass_fraction = compute_mass_fraction(molar_mass[reagent],
+        mass_fraction,solute_mass,solvent_mass = compute_mass_fraction(molar_mass[reagent],
                         solvent_volume,
                         solvent_density,
                         solvent_molar_mass,
                         target_concentration[reagent])
         print('{0}: {1:.5f}'.format(reagent,mass_fraction))
+        print(solute_mass)
+        print(solvent_mass)
+        print('\n')
